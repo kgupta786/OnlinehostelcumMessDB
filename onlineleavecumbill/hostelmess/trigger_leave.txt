@@ -1,0 +1,18 @@
+
+//Use Of Trigger
+CREATE OR REPLACE TRIGGER leaveauto 
+BEFORE INSERT ON leave 
+FOR EACH ROW
+
+BEGIN
+  SELECT incre.NEXTVAL
+  INTO   :new.l_no
+  FROM   dual;
+END;
+-----------------------------------------------
+//Use Of Sequence
+CREATE SEQUENCE incre
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+

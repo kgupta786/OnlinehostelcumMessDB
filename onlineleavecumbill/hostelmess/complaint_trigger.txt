@@ -1,0 +1,21 @@
+
+
+//Use Of Trigger
+
+CREATE OR REPLACE TRIGGER complaintauto 
+BEFORE INSERT ON complaint 
+FOR EACH ROW
+
+BEGIN
+  SELECT incre1.NEXTVAL
+  INTO   :new.complaint_no
+  FROM   dual;
+END;
+------------------------------------------
+//Use Of Sequences
+
+CREATE SEQUENCE incre1
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+
